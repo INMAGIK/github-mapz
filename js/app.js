@@ -36,16 +36,22 @@ angular.module('mapz', [])
     }
 
 
-    svc.easier = function(u, r){
-
+    svc.getConfig = function(u, r){
+        var deferred = $q.defer();
         var github = new Github({});
         var repo = github.getRepo(u, r);
         repo.read('master', 'mapzconfig.json', function(err, data) {
             if(err){
-                throw err
+                deferred.reject(err);
             }
-            console.log("w", data)
+            try {
+                deferred.resolve(JSON.parse(data));
+            } catch(err){
+                deferred.reject(err);   
+            }
         });
+
+        return deferred.promise;
     
 
 
@@ -61,7 +67,10 @@ angular.module('mapz', [])
         console.log("config", data);
     })
     */
-    repoConfig.easier("inmagik", "github-mapz")    ;
+    repoConfig.getConfig("inmagik", "github-mapz")
+    .then(function(data){
+        console.log("config", data);
+    })
     
     
 }])
