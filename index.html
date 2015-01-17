@@ -1,12 +1,35 @@
 <!doctype HTML>
 <html>
-    <head></head>
-    <body ng-app="mapz" ng-controller="TestCtrl">
+    <head>
+        <link rel="stylesheet" href="lib/angular-openlayers-directive/dist/angular-openlayers-directive.css">
+        <style>
+
+        .main{
+            background : #eee;
+            position: absolute;
+            left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            
+        }
+        </style>
+        
+    </head>
+    <body ng-app="mapz" ng-controller="TestCtrl" ng-cloak>
+        <div ui-view></div>
         <script src="lib/jquery/dist/jquery.min.js"></script>
         <script src="lib/underscore/underscore.js"></script>
         <script src="lib/gh3/gh3.js"></script>
         <script src="lib/github/github.js"></script>
+        <script src="lib/openlayers3/build/ol.js"></script>
+
         <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="lib/angular-openlayers-directive/dist/angular-openlayers-directive.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
     </body>
 </html>

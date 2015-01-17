@@ -1,3 +1,8 @@
 {
-    "title" : "My map"
+    "title" : "My map",
+    "center" : {
+        "lat" : 51.505,
+        "lon" : -0.09,
+        "zoom" : 4
+    }
 }
