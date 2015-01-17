@@ -12,9 +12,16 @@ angular.module('mapz', ['ui.router', 'openlayers-directive'])
   // Now set up the states
   $stateProvider
     .state('home', {
-      url: "/home",
-      templateUrl: "templates/home.html"
-    })
+      url: "/home/:username/:repo",
+      templateUrl: "templates/home.html",
+      controller : "TestCtrl",
+      resolve : {
+        mapConfig : function(repoConfig, $stateParams){
+            return repoConfig.getConfig($stateParams.username, $stateParams.repo)
+        }
+      }
+    }
+  );
     
 
 

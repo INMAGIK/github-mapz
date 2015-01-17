@@ -1,3 +1,5 @@
-<div class="main" ol-center="data.center" zoom="9" height="100%" openlayers ng-if="loaded">
+<div class="main" ol-center="data.center" zoom="9" height="100%" openlayers>
+
+    <ol-marker ng-repeat="marker in data.markers" lat="marker.lat" lon="marker.lon"></ol-marker>
     
 </div>
