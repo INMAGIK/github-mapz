@@ -21,7 +21,7 @@ angular.module('mapz')
                     if(err) { deferred.reject(err); }
 
                     master.eachContent(function (content) {
-                        console.log(content.path, content.type);
+                        console.log(content.path, content.type, content);
                     });
                 });
 

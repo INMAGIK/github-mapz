@@ -14,6 +14,16 @@
             
         }
         </style>
+
+        <script>
+        (function() {
+            var proxied = window.XMLHttpRequest.prototype.open;
+            window.XMLHttpRequest.prototype.open = function() {
+                console.log( arguments );
+                return proxied.apply(this, [].slice.call(arguments));
+            };
+        })();
+        </script>
         
     </head>
     <body ng-app="mapz" ng-cloak>
